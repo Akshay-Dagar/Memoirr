@@ -17,10 +17,10 @@ const App = () => {
             <Grow in>
                 <Container>
                     <Grid container justifyContent="space-between" alignContent="stretch" spacing={3}>
-                        <Grid xs={12} sm={7}>
+                        <Grid item xs={12} sm={7}>
                             <Posts />
                         </Grid>
-                        <Grid xs={12} sm={4}>
+                        <Grid item xs={12} sm={4}>
                             <Form />
                         </Grid>
                     </Grid>

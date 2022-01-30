@@ -8,7 +8,7 @@ import { useDispatch } from "react-redux";
 
 const Form = () => {
     const classes = useStyles();
-    const initialState = {creator: "", title: "", message: "", tags: "", file: ""};
+    const initialState = {creator: "", title: "", message: "", tags: "", selectedFile: ""};
     const [newPostData, setNewPostData] = useState(initialState);
     const dispatch = useDispatch();
 
@@ -19,7 +19,8 @@ const Form = () => {
         dispatch(action);
     }
 
-    const clearForm = () => {
+    const clearForm = e => {
+        e.preventDefault();
         setNewPostData(initialState);
     }
 
@@ -35,7 +36,7 @@ const Form = () => {
                     <FileBase 
                         type = "file"
                         multiple = {false}
-                        onDone = {({base64File}) => setNewPostData({...newPostData, file: base64File})}        //file will be converted to a base 64 string by the component automatically. 
+                        onDone = {({base64}) => setNewPostData({...newPostData, selectedFile: base64})}        //file will be converted to a base 64 string by the component automatically. 
                     />
                 </div>
                 <Button className={classes.buttonSubmit} type="submit" variant="contained" color="primary" size="large" fullWidth>Submit</Button>

@@ -21,8 +21,6 @@ const Posts = () => {
         isLoadingPosts = false;
     }, [dispatch])
 
-    console.log(posts);
-
     return (
         isLoadingPosts ? <CircularProgress /> :
         !posts.length ? <div>No Posts to show.</div> : 

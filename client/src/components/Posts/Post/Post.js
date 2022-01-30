@@ -25,7 +25,7 @@ const Post = ({post}) => {                          //will get one prop, the pos
                 <Typography variant="body2" color="textSecondary">{post.tags.map(tag => `#${tag} `)}</Typography>
             </div>
             <CardContent>
-                <Typography variant="h5" gutterBottom className={classes.title}>{post.title}</Typography>
+                <Typography variant="h5" gutterBottom className={classes.title}>{post.message}</Typography>
             </CardContent>
             <CardActions className={classes.cardActions}>
                 <Button size="small" color="primary" onClick={() => {}}>

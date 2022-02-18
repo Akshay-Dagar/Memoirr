@@ -6,6 +6,7 @@ import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import useStyles from "./styles.js";
 import moment from "moment";
 import { SetPostToBeUpdatedId } from "../../../actions/PostToBeUpdatedIdActions";
+import { DeletePost } from "../../../actions/PostsActions";
 import { useDispatch } from "react-redux";
 
 const Post = ({post}) => {                          //will get one prop, the post data
@@ -41,7 +42,7 @@ const Post = ({post}) => {                          //will get one prop, the pos
                     <ThumbUpAltIcon fontSize="small" />
                     Like     {post.likeCount}
                 </Button>
-                <Button size="small" color="primary" onClick={() => {}}>
+                <Button size="small" color="primary" onClick={async () => {const action = await DeletePost(post._id); dispatch(action);}}>
                     <DeleteIcon fontSize="small"/>
                     Delete
                 </Button>

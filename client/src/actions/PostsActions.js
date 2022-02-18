@@ -17,3 +17,8 @@ export const UpdatePost = async (updatedPostid, updatedPostData) => {
     const UpdatedPost = res.data;
     return {type: "UPDATE_POST", payload: UpdatedPost};
 };
+
+export const DeletePost = async id => {
+    await api.DeletePost(id);
+    return {type: "DELETE_POST", payload: id};
+};

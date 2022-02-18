@@ -29,7 +29,7 @@ export const UpdatePost = async (req,res) => {
         if (!mongoose.Types.ObjectId.isValid(id))
             return res.status(404).json("No post with this id.");
 
-        const updatedPost = await PostMessage.findByIdAndUpdate(id, req.body, {new: true});
+        const updatedPost = await PostMessage.findByIdAndUpdate(id, {...req.body, id}, {new: true});    //req.body from the client side only contains title, message, tags, creator etc. but no id
         res.status(201).json(updatedPost);    
     }
     catch (error) {

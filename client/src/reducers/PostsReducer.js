@@ -4,6 +4,8 @@ export default (posts = [], action) => {
             return action.payload;
         case "CREATE_POST":
             return [...posts, action.payload];
+        case "UPDATE_POST":
+            return posts.map((post) => (post._id === action.payload._id ? action.payload : post));        //see which post's id in posts matches payload's id and update that post to action.payload, leave the rest as they are
         default:
             return posts;
     }

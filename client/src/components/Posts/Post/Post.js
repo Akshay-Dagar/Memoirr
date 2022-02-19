@@ -6,7 +6,7 @@ import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import useStyles from "./styles.js";
 import moment from "moment";
 import { SetPostToBeUpdatedId } from "../../../actions/PostToBeUpdatedIdActions";
-import { DeletePost } from "../../../actions/PostsActions";
+import { DeletePost, LikePost } from "../../../actions/PostsActions";
 import { useDispatch } from "react-redux";
 
 const Post = ({post}) => {                          //will get one prop, the post data
@@ -35,12 +35,12 @@ const Post = ({post}) => {                          //will get one prop, the pos
             </div>
             <Typography variant="h5" gutterBottom className={classes.title}>{post.title}</Typography>
             <CardContent>
-                <Typography variant="h5" gutterBottom>{post.message}</Typography>
+                <Typography variant="body2" color="textSecondary" component="p" gutterBottom>{post.message}</Typography>
             </CardContent>
             <CardActions className={classes.cardActions}>
-                <Button size="small" color="primary" onClick={() => {}}>
+                <Button size="small" color="primary" onClick={async () => {const action = await LikePost(post._id); dispatch(action);}}>
                     <ThumbUpAltIcon fontSize="small" />
-                    Like     {post.likeCount}
+                    &nbsp; Like &nbsp; {post.likeCount}
                 </Button>
                 <Button size="small" color="primary" onClick={async () => {const action = await DeletePost(post._id); dispatch(action);}}>
                     <DeleteIcon fontSize="small"/>

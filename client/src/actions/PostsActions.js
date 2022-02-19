@@ -22,3 +22,9 @@ export const DeletePost = async id => {
     await api.DeletePost(id);
     return {type: "DELETE_POST", payload: id};
 };
+
+export const LikePost = async id => {
+    const res = await api.LikePost(id);
+    const UpdatedPost = res.data;
+    return {type: "UPDATE_POST", payload: UpdatedPost};
+}

@@ -14,6 +14,7 @@ app.use(cors());                           //To allow cross origin requests. u c
 
 app.use("/posts", PostRoutes);             //Every request to /posts will be routed by PostRoutes now
 
+app.get("/", (req,res) => res.send("Memoirr Api")); 
 
 //MongoDB connection:
 const PORT = process.env.PORT || 5000;
